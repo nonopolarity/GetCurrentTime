@@ -25,7 +25,7 @@ export default function App() {
         setTimeID(t => t + 1);
       }
     }, 3000);
-  });
+  }, []);
 
   const getLocalTime = (s) => {
     const date = new Date(Date.parse(s));
