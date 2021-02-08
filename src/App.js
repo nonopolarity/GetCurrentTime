@@ -3,13 +3,13 @@ import './App.css';
 
 // Demo: 
 
-function App() {
+export default function App() {
   const [data, setData] = useState({});
  const [timeSliceID, setTimeSliceID] = useState(0);
   let foo = 0;
 
   useEffect(() => {
-    fetch("http://worldtimeapi.org/api/timezone/America/Los_Angeles")
+    fetch("http://worldclockapi.com/api/json/pst/now")
       .then(res => res.json())
       .then(dataFetched => {
         setData(dataFetched);
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
 <pre className="data">
-        {data.datetime}
+        {data.currentDateTime}
       </pre> 
     </div>
   );
