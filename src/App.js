@@ -9,7 +9,7 @@ export default function App() {
   let foo = 0;
 
   useEffect(() => {
-    fetch("http://worldclockapi.com/api/json/pst/now")
+    fetch("https://worldtimeapi.org/api/timezone/America/Los_Angeles")
       .then(res => res.json())
       .then(dataFetched => {
         setData(dataFetched);
@@ -28,10 +28,8 @@ export default function App() {
   return (
     <div className="App">
 <pre className="data">
-        {data.currentDateTime}
+        {data.datetime}
       </pre> 
     </div>
   );
 }
-
-export default App;
