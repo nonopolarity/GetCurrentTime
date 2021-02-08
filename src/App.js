@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import './App.css';
 
-// Demo: 
-
 export default function App() {
   const [data, setData] = useState({});
- const [timeSliceID, setTimeSliceID] = useState(0);
-  let foo = 0;
 
   useEffect(() => {
     fetch("http://worldclockapi.com/api/json/pst/now")
@@ -14,24 +10,13 @@ export default function App() {
       .then(dataFetched => {
         setData(dataFetched);
       });
-  }, [foo]);
-
-  useEffect(() => {
-    setInterval(() => {
-      console.log("INTERVAL", timeSliceID, foo);
-      // timeSliceID++;
-      foo++;
-      setTimeSliceID(timeSliceID + 1);
-    }, 3000);
   }, []);
 
   return (
     <div className="App">
-<pre className="data">
+      <pre className="data">
         {data.currentDateTime}
       </pre> 
     </div>
   );
 }
-
-export default App;
