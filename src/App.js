@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import './App.css';
 
-// Demo: 
-
 export default function App() {
   const [data, setData] = useState({});
- const [timeSliceID, setTimeSliceID] = useState(0);
-  let foo = 0;
+  const [timeID, setTimeID] = useState(0);
 
   useEffect(() => {
     fetch("https://worldtimeapi.org/api/timezone/America/Los_Angeles")
@@ -14,22 +11,20 @@ export default function App() {
       .then(dataFetched => {
         setData(dataFetched);
       });
-  }, [foo]);
+  }, [timeID]);
 
   useEffect(() => {
     setInterval(() => {
-      console.log("INTERVAL", timeSliceID, foo);
-      // timeSliceID++;
-      foo++;
-      setTimeSliceID(timeSliceID + 1);
+      console.log("INTERVAL", timeID);
+      setTimeID(timeID + 1);
     }, 3000);
   }, []);
 
   return (
     <div className="App">
-<pre className="data">
+      <pre className="data">
         {data.datetime}
-      </pre> 
+      </pre>
     </div>
   );
 }
