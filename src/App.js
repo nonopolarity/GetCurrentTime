@@ -4,8 +4,10 @@ import './App.css';
 export default function App() {
   const [data, setData] = useState({});
   const [timeID, setTimeID] = useState(0);
+// let foo =0;
 
   useEffect(() => {
+    console.log("FETCHING");
     fetch("https://worldtimeapi.org/api/timezone/America/Los_Angeles")
       .then(res => res.json())
       .then(dataFetched => {
@@ -16,7 +18,8 @@ export default function App() {
   useEffect(() => {
     setInterval(() => {
       console.log("INTERVAL", timeID);
-      setTimeID(timeID + 1);
+      // foo++;
+      setTimeID(t => t + 1);
     }, 3000);
   }, []);
 
