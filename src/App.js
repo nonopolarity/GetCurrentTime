@@ -23,11 +23,17 @@ export default function App() {
     }, 3000);
   }, []);
 
+  const getLocalTime = (s) => {
+    const date = new Date(Date.parse(s));
+    return date.toLocaleTimeString('en-US')
+  }
+
   return (
     <div className="App">
       { timeID }
       <pre className="data">
-        {data.datetime}
+        {/* {data.datetime} */}
+        {getLocalTime(data.datetime)}
       </pre>
     </div>
   );
