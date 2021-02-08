@@ -22,6 +22,7 @@ export default function App() {
 
   return (
     <div className="App">
+      { timeID }
       <pre className="data">
         {data.datetime}
       </pre>
