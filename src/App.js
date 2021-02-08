@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
 <pre className="data">
-        {JSON.stringify(data, null, 4)}
+        {data.datetime}
       </pre> 
     </div>
   );
