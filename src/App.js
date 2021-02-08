@@ -16,10 +16,14 @@ export default function App() {
   }, [timeID]);
 
   useEffect(() => {
+    let cHowManyTimes = 0;
     setInterval(() => {
       console.log("INTERVAL", timeID);
       // foo++;
-      setTimeID(t => t + 1);
+      // do not keep on getting data
+      if (cHowManyTimes++ < 10) {
+        setTimeID(t => t + 1);
+      }
     }, 3000);
   });
 
